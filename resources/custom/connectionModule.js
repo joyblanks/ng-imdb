@@ -22,7 +22,7 @@ connectionApp.factory('movieConfig', [function(){
 }]);
 
 /**
-* ng-service :: movieService
+* ng-service :: movieService 
 * This is the movieService (angular.service) to make ajax promises and return to caller
 */
 connectionApp.service('movieService', ['$http', '$q', 'movieConfig', function($http, $q, movieConfig) {
