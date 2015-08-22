@@ -1,0 +1,39 @@
+<nav id="navPane" ng-controller="NavigationController as navigation" class="navbar navbar-inverse navbar-fixed-top">
+	<div>
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-target="#collapse-1" data-toggle="collapse" aria-expanded="false">
+				<span class="sr-only">Toggle Navigation</span><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+			<a title="Home" class="navbar-brand brandapi" href="javascript:void(0);" ng-click="navigation.navObj.searchMovies()">
+				<div class="favIconApi a"></div>
+				<div class="favIconApi b"></div>
+				<span id="apititle">|REST API IMDB <img src="./resources/custom/images/header.png" width="100" height="20" /></span>
+				<p class="signme">&nbsp;- joy.blanks@hotmail.com</p>
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="collapse-1">
+			<button type="button" ng-repeat="menu in navigation.navObj.navMenu" class="btn btn-primary btn-md navbar-btn tp180" ng-click="navigation.navObj.searchMovies(menu.topic);" ng-class="navigation.navObj.isActive(menu.topic)"><span class="glyphicon glyphicon-{{menu.icon}}" aria-hidden="true"/> {{menu.display}} </button>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="input-group">
+					<span class="input-group-addon mytop0" id="basic-addon1"> <span class="glyphicon glyphicon-search" ng-class="(navigation.navObj.isSearchOn ? ' glyphicon-refresh roller' : '')"></span></span>
+					<input type="text" ng-model="searchStr" ng-keyup="navigation.navObj.searchMovies(searchStr)" placeholder="Search for a movie..." class="form-control" aria-describedby="basic-addon1">
+				</div>
+			</form>
+			<div class="btn-group pull-right" role="group" id="loadType">
+				<div class="btn-group" role="group">
+	    			<button type="button" class="btn btn-warning btn-md navbar-btn" ng-if="navigation.navObj.isLoadType('P')" ng-class="navigation.navObj.paginate('previous')" ng-click="navigation.navObj.paginate(-1)"><span class="glyphicon glyphicon-backward"></span></button>
+	    			<button type="button" class="btn btn-default btn-md navbar-btn" ng-if="navigation.navObj.isLoadType('P') && navigation.navObj.paginate('isPage').page"><span>{{navigation.navObj.paginate('isPage').display}}</span></button>
+	    			<button type="button" class="btn btn-warning btn-md navbar-btn" ng-if="navigation.navObj.isLoadType('P')" ng-class="navigation.navObj.paginate('next')"     ng-click="navigation.navObj.paginate(+1)"><span class="glyphicon glyphicon-forward"></span></button>
+	    			
+	    			<button id="fetchMore" type="button" class="btn btn-warning btn-md navbar-btn" ng-if="navigation.navObj.isLoadType('L')" ng-class="navigation.navObj.paginate('next')" ng-click="navigation.navObj.paginate('more')"><span class="glyphicon glyphicon-plus"></span></button>
+	    			
+	    			<button type="button" class="btn btn-warning btn-md navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{navigation.navObj.loadTypeDisplay()}} <span class="caret"></span></button>
+	    			<ul class="dropdown-menu">
+						<li><a ng-click="navigation.navObj.setLoadType('P')">{{navigation.navObj.loadTypeDisplay('P')}}</a></li>
+						<li><a ng-click="navigation.navObj.setLoadType('L')">{{navigation.navObj.loadTypeDisplay('L')}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>

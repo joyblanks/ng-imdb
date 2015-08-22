@@ -1,0 +1,9 @@
+<div id="movieView" ng-controller="MoviesController as moviesCtrl">
+	<div class=row ng-repeat="(mK, movie) in moviesCtrl.myMovieObj.results" ng-if="$index % moviesCtrl.movieConfig.repeatCount == 0" ng-init="pIdx=$index">
+		<div class="col-sm-2" ng-repeat="movie in moviesCtrl.myMovieObj.results.slice(pIdx,pIdx+moviesCtrl.movieConfig.repeatCount)">
+			<img class="movieItm img-rounded" ng-if="movie.poster_path"  ng-click="moviesCtrl.getMovie(movie.id)" src="{{moviesCtrl.movieConfig.imgServer + moviesCtrl.movieConfig.thumbnail + movie.poster_path}}" />
+			<div class="movieItm img-rounded" ng-if="!movie.poster_path" ng-click="moviesCtrl.getMovie(movie.id)"></div>
+			<aside class="movTle">{{movie.title}}</aside>
+		</div>
+	</div>
+</div>

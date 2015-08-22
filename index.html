@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang=en>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>REST API IMDB | joy biswas</title>
+		<link href="./resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="./resources/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="./resources/custom/ngimdb.css" rel="stylesheet">
+		<script src="./resources/jquery-2.1.4.min.js"></script>
+		<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
+		<script src="./resources/angular/angular.min.js"></script>
+		<script src="./resources/angular/angular-route.min.js"></script>
+		<script src="./resources/custom/imdbModule.js"></script>
+		<script src="./resources/custom/connectionModule.js"></script>
+	</head>
+	<body ng-app="imdbModule" class="container-fluid">
+		<header> <navigation/> </header>
+		<section><ng-view></ng-view></section>
+	</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- Not using was using for errors -->
+
+<div id="home" ng-controller="HomeController as home">
+	<div class="jumbotron" id="backBone"></div>
+	<div ng-if="(home.err ==='joykalocalsevere')" class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-remove-sign"></span> CORS is blocked! I will try a proxy server! <br/>@TODO: Add mylocal IP Address as string in proxy server Exception List and click <strong><a href="javascript:void(0)" ng-click="home.checkAgain()">"Check Manual"</a></strong></div>
+	<div ng-if="(home.err==='ok')" class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span> Oh kool! We are good to go!</div>
+	<div ng-if="(home.err===false || home.err==='joykalocalcheck')" class="alert alert-warning" role="alert"><span class="glyphicon glyphicon-refresh roller"></span> Checking Connection!</div>
+	<div ng-if="(home.err==='joykalocal')" class="alert alert-success" role="alert"><span class="glyphicon glyphicon-ok"></span> Oh kool! We are good to go using CORS!</div>
+</div>
+
+<script>
+	/**
+	* ng-controller :: HomeController
+	* Expanded view with home/error/success
+	*/
+	app.controller('HomeController', ['$scope', '$location', 'movieService', 'movieConfig', function($scope, $location, movieService, movieConfig) {
+		var myScope = this;
+		myScope.err = '';
+		/*-----------------------------------------Remove this in real life TCS CORS blocking -----------------------------------
+		myScope.testConnection = function(){
+			var eOb = movieService.errObject();
+			if(typeof eOb === 'string' && eOb.indexOf('joykalocal')>-1){
+				if(eOb.indexOf('severe')>-1){
+					myScope.err = 'joykalocalsevere';
+					movieService.errObject(myScope.err);
+				}else{
+					if(eOb.indexOf('joykalocalcheck')>-1){
+						promise = movieService.testConnection();
+						promise.then(
+							function(resJson) {
+								myScope.err = 'joykalocal';
+								movieService.errObject(myScope.err);
+							},function(j){
+								$location.url('');
+								//myScope.err = j ? j : 0;
+								myScope.err = 'joykalocalsevere';
+								movieService.errObject(myScope.err);
+							}
+						);
+					}else myScope.error = 'joykalocal';
+				}
+			}else if(eOb!=='ok'){
+				promise = movieService.testConnection();
+				promise.then(
+					function(resJson) {
+						myScope.err = 'ok';
+						movieService.errObject(myScope.err);
+					},function(j){
+						$location.url('');
+						myScope.err = j ? j : 0;
+						if(eOb===false){
+							myScope.err = 'joykalocalcheck';
+						}
+						movieService.errObject(myScope.err);
+						myScope.testConnection();
+					}
+				);
+			}else myScope.error = 'ok';
+		}
+		myScope.testConnection();
+		myScope.checkAgain = function(){
+			$location.url('');
+		}
+		//-----------------------------------------Remove this in real life -----------------------------------*/
+	}]);
+	
+	
+	//service Me 
+	//-----------------------------------------Remove this in real life -----------------------------------
+	var err = false;
+	this.errObject = function(wht){if(wht===undefined){return err;}else{err = wht;viaCORS=(err===false || err==='ok' || err.indexOf('joykalocal')==-1);}};
+	this.testConnection= function() {
+		return promiseMe(httpProt+'://api.themoviedb.org/3/search/movie?'+myKey+'&query=batman&delay=true');
+	};
+	//-----------------------------------------Remove this in real life -----------------------------------
+</script>
