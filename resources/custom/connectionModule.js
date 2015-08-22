@@ -28,7 +28,7 @@ connectionApp.factory('movieConfig', [function(){
 connectionApp.service('movieService', ['$http', '$q', 'movieConfig', function($http, $q, movieConfig) {
 	var httpProt = 'https';//window.location.protocol == 'https:' ? 'https' : 'http';
 	var myKey = 'api_key='+movieConfig.api_key+'&randm='+Math.random();
-	var viaCORS = true;//else will proxy server (implementation in getStuff.php on PHP server code attached)
+	//var viaCORS = true;//else will proxy server (implementation in getStuff.php on PHP server code attached)
 	
 	//class type vars
 	var movies = {};
@@ -38,7 +38,7 @@ connectionApp.service('movieService', ['$http', '$q', 'movieConfig', function($h
 
 	function promiseMe(url){
 		var deferred = $q.defer();
-		url = viaCORS ? url : 'http://joykalocal/ng-imdb/getStuff.php?url='+encodeURIComponent(url);
+		//url = viaCORS ? url : 'http://joykalocal/ng-imdb/getStuff.php?url='+encodeURIComponent(url);
 		$http.get(url)
 			.success(function(data) { 
 				deferred.resolve(data); 
