@@ -3,8 +3,8 @@
 		<div class="dimmer panel panel-primary">
 			<div class="panel-heading clearfix">
 				<div class="btn-group pull-right">
-					<a class="label label-danger" ng-click="movie.goBack()"><span class="glyphicon glyphicon-share-alt fliphorizontal"></span></a>
-					<a class="label label-danger" ng-click="movie.panel(movie.panel(1))"><span class="glyphicon" ng-class="movie.panel(1)?'glyphicon-minus':'glyphicon-plus'"></span></a>
+					<button class="btn btn-danger" ng-click="movie.goBack()"><span class="glyphicon glyphicon-share-alt fliphorizontal"></span></button>
+					<button class="btn btn-danger" ng-click="movie.panel(movie.panel(1))"><span class="glyphicon" ng-class="movie.panel(1)?'glyphicon-minus':'glyphicon-plus'"></span></button>
 				</div>
 				<h1 class="panel-title">{{movie.movieDetails.title}}  {{ movie.movieDetails.title==movie.movieDetails.original_title ? "" : ("(" + movie.movieDetails.original_title + ")") }} <a target="_blank" href="http://www.imdb.com/title/{{movie.movieDetails.imdb_id}}/" ng-if="movie.movieDetails.imdb_id" title="Go to IMDB for {{movie.movieDetails.title}}"><img src="./resources/custom/images/imdb.png" style="width:35px;" /></a></h1>
 				<h5 class="panel-title"><i>{{ movie.movieDetails.tagline}}</i></h5>
