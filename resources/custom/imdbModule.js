@@ -246,16 +246,16 @@
 	app.directive('credit', [function(){
 		return {
 			scope: {
-				credit:'@'
+				credit:'@', movie:'&'
 			}
 			,restrict: 'A'
 			,templateUrl: './resources/templates/credit.html'
 			,replace: true
-			,transclude: true
-			/*,link: function(scope, element, attributes){
-				scope.creditLine = attributes.credit;
-				console.log(attributes);
-			}*/
+			
+			,link: function(scope, element, attributes){
+				scope.credit = attributes.credit;
+				scope.movie = scope.movie();
+			}
 		};
 	}]);
 
