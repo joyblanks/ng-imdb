@@ -26,11 +26,11 @@
 						</div>
 						<div ng-if="movie.movieDetails.genres.length">
 							<span>Genres:</span>
-							<span class="glyphicon glyphicon-tags label label-info smallLists" ng-repeat="(gK, genre) in movie.movieDetails.genres">{{genre.name.replace(' ','-')}}</span>
+							<span class="glyphicon glyphicon-tags label label-info smallLists" ng-repeat="(gK, genre) in movie.movieDetails.genres">&nbsp;{{genre.name.replace(' ','-')}}</span>
 						</div>
 						<div ng-if="movie.movieDetails.production_countries.length">
 							<span>Production Countires:</span>
-							<span class="smallLists" ng-repeat="(cnK, country) in movie.movieDetails.production_countries"><img src="./resources/custom/images/countries/{{country.iso_3166_1}}.png" />&nbsp;{{country.name.replace(' ','-')}}</span>
+							<span class="smallLists" ng-repeat="(cnK, country) in movie.movieDetails.production_countries"><img src="./resources/custom/images/countries/{{country.iso_3166_1.toLowerCase()}}.png" />&nbsp;{{country.name.replace(' ','-')}}</span>
 						</div>
 						
 					</div>
