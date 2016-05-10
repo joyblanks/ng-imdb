@@ -12,7 +12,9 @@
 			</a>
 		</div>
 		<div class="collapse navbar-collapse" id="collapse-1">
-			<button type="button" ng-repeat="menu in navigation.navObj.navMenu" class="btn btn-primary btn-md navbar-btn tp180" ng-click="navigation.navObj.searchMovies(menu.topic);" ng-class="navigation.navObj.isActive(menu.topic)"><span class="glyphicon glyphicon-{{menu.icon}}" aria-hidden="true"/> {{menu.display}} </button>
+			<div class="btn-group" role="group">
+				<button type="button" ng-repeat="menu in navigation.navObj.navMenu" class="btn btn-primary navbar-btn tp180" ng-click="navigation.navObj.searchMovies(menu.topic);" ng-class="navigation.navObj.isActive(menu.topic)"><span class="glyphicon glyphicon-{{menu.icon}}" aria-hidden="true"/> {{menu.display}} </button>
+			</div>
 			<form class="navbar-form navbar-left" role="search">
 				<div class="input-group">
 					<span class="input-group-addon mytop0" id="basic-addon1"> <span class="glyphicon glyphicon-search" ng-class="(navigation.navObj.isSearchOn ? ' glyphicon-refresh roller' : '')"></span></span>

@@ -3,8 +3,8 @@
 		<div class="dimmer panel panel-primary">
 			<div class="panel-heading clearfix">
 				<div class="btn-group pull-right">
-					<a class="label label-danger" ng-click="movie.goBack()"><span class="glyphicon glyphicon-share-alt fliphorizontal"></span></a>
-					<a class="label label-danger" ng-click="movie.panel(movie.panel(1))"><span class="glyphicon" ng-class="movie.panel(1)?'glyphicon-minus':'glyphicon-plus'"></span></a>
+					<button class="btn btn-danger" ng-click="movie.goBack()"><span class="glyphicon glyphicon-share-alt fliphorizontal"></span></button>
+					<button class="btn btn-danger" ng-click="movie.panel(movie.panel(1))"><span class="glyphicon" ng-class="movie.panel(1)?'glyphicon-minus':'glyphicon-plus'"></span></button>
 				</div>
 				<h1 class="panel-title">{{movie.movieDetails.title}}  {{ movie.movieDetails.title==movie.movieDetails.original_title ? "" : ("(" + movie.movieDetails.original_title + ")") }} <a target="_blank" href="http://www.imdb.com/title/{{movie.movieDetails.imdb_id}}/" ng-if="movie.movieDetails.imdb_id" title="Go to IMDB for {{movie.movieDetails.title}}"><img src="./resources/custom/images/imdb.png" style="width:35px;" /></a></h1>
 				<h5 class="panel-title"><i>{{ movie.movieDetails.tagline}}</i></h5>
@@ -26,25 +26,20 @@
 						</div>
 						<div ng-if="movie.movieDetails.genres.length">
 							<span>Genres:</span>
-							<span class="glyphicon glyphicon-tags label label-info smallLists" ng-repeat="(gK, genre) in movie.movieDetails.genres">{{genre.name.replace(' ','-')}}</span>
+							<span class="glyphicon glyphicon-tags label label-info smallLists" ng-repeat="(gK, genre) in movie.movieDetails.genres">&nbsp;{{genre.name.replace(' ','-')}}</span>
 						</div>
 						<div ng-if="movie.movieDetails.production_countries.length">
 							<span>Production Countires:</span>
-							<span class="smallLists" ng-repeat="(cnK, country) in movie.movieDetails.production_countries"><img src="./resources/custom/images/countries/{{country.iso_3166_1}}.png" />&nbsp;{{country.name.replace(' ','-')}}</span>
+							<span class="smallLists" ng-repeat="(cnK, country) in movie.movieDetails.production_countries"><img src="./resources/custom/images/countries/{{country.iso_3166_1.toLowerCase()}}.png" />&nbsp;{{country.name.replace(' ','-')}}</span>
 						</div>
 						
 					</div>
 				</div>
 				<div class=row>
-					<div ng-if="cast.profile_path" class="col-sm-1" ng-repeat="(cK, cast) in movie.movieDetails.cast">
-						<img ng-if="cast.profile_path" class="img-circle" src="{{movie.movieConfig.imgServer + movie.movieConfig.verysmall + cast.profile_path}}" alt="{{cast.name}}" title="{{cast.name+' | '+cast.character}}" />
-					</div>
+					<div class="col-sm-6"><div credit="cast" movie="movie"></div></div>
+					<div class="col-sm-6"><div credit="crew" movie="movie"></div></div>
 				</div>
-				<div class=row>
-					<div ng-if="crew.profile_path" class="col-sm-1" ng-repeat="(cK, crew) in movie.movieDetails.crew">
-						<img ng-if="crew.profile_path" class="img-circle" src="{{movie.movieConfig.imgServer + movie.movieConfig.verysmall + crew.profile_path}}" alt="{{crew.name}}" title="{{crew.name+' | '+crew.character}}" />
-					</div>
-				</div>
+				
 				<hr/>
 				<div class="row" ng-if="movie.movieDetails.trailers.youtube.length">
 					<div class="col-sm-4" ng-repeat="vid in movie.movieDetails.trailers.youtube | limitTo: 3">
