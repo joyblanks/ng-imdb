@@ -36,15 +36,10 @@
 					</div>
 				</div>
 				<div class=row>
-					<div ng-if="cast.profile_path" class="col-sm-1" ng-repeat="(cK, cast) in movie.movieDetails.cast">
-						<img ng-if="cast.profile_path" class="img-circle" src="{{movie.movieConfig.imgServer + movie.movieConfig.verysmall + cast.profile_path}}" alt="{{cast.name}}" title="{{cast.name+' | '+cast.character}}" />
-					</div>
+					<div class="col-sm-6"><div credit="cast"></div></div>
+					<div class="col-sm-6"><div credit="crew"></div></div>
 				</div>
-				<div class=row>
-					<div ng-if="crew.profile_path" class="col-sm-1" ng-repeat="(cK, crew) in movie.movieDetails.crew">
-						<img ng-if="crew.profile_path" class="img-circle" src="{{movie.movieConfig.imgServer + movie.movieConfig.verysmall + crew.profile_path}}" alt="{{crew.name}}" title="{{crew.name+' | '+crew.character}}" />
-					</div>
-				</div>
+				
 				<hr/>
 				<div class="row" ng-if="movie.movieDetails.trailers.youtube.length">
 					<div class="col-sm-4" ng-repeat="vid in movie.movieDetails.trailers.youtube | limitTo: 3">
