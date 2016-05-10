@@ -29,7 +29,6 @@ div.favIconApi:hover ~ span{margin-left:16px;}
 .row{margin:auto;}
 #movieDetailView .movieBk{height:100vh;background: #FFF no-repeat fixed 0 50px / cover;padding-top:80px !important;}
 #movieDetailView .dimmer{background:rgba(0,0,0,0.7);margin:auto 1%;color:#FFF;}
-#movieDetailView .smallLists{padding: 2px 5px; margin:2px;}
+#movieDetailView .smallLists{padding: 5px; margin:2px;display:inline-block;}
 .btn-info:hover{border-color: #28a4c9;}
 span.fliphorizontal{-moz-transform: scaleX(-1);-webkit-transform: scaleX(-1);-o-transform: scaleX(-1);transform: scaleX(-1);-ms-filter: fliph; /*IE*/filter: fliph; /*IE*/}
-
