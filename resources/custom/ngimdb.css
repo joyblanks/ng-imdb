@@ -34,3 +34,4 @@ div.favIconApi:hover ~ span{margin-left:16px;}
 span.fliphorizontal{-moz-transform: scaleX(-1);-webkit-transform: scaleX(-1);-o-transform: scaleX(-1);transform: scaleX(-1);-ms-filter: fliph; /*IE*/filter: fliph; /*IE*/}
 .creditObj .media-body {color: #000;}
 .silkhoitte{width:45px; height:60px;}
+.creditObj .list-group-item-heading{text-transform:capitalize;}
