@@ -171,7 +171,7 @@
 					//$log.error('failure loading movie', errorPayload);
 				}
 			);
-			/*promise = movieService.getMovieCredits(key);
+			promise = movieService.getMovieCredits(key);
 			promise.then(
 				function(resJson) {
 					var movieDetail = movieService.movieDetails();
@@ -179,7 +179,7 @@
 					movieDetail.crew = resJson.crew;
 					movieService.movieDetails(movieDetail);
 				}
-			);*///lazy load on request click
+			);//lazy load on request click
 		}
 	}]);
 
@@ -240,6 +240,22 @@
 			,templateUrl: './resources/templates/navigation.html'
 			,replace: true
 			,transclude: true
+		};
+	}]);
+	
+	app.directive('credit', [function(){
+		return {
+			scope: {
+				credit:'@'
+			}
+			,restrict: 'A'
+			,templateUrl: './resources/templates/credit.html'
+			,replace: true
+			,transclude: true
+			/*,link: function(scope, element, attributes){
+				scope.creditLine = attributes.credit;
+				console.log(attributes);
+			}*/
 		};
 	}]);
 
