@@ -1,9 +1,9 @@
-<div class="list-group creditObj">
-	<div class="list-group-item active">
-		<h4 class="list-group-item-heading">{{credit}}</h4>
+<div class=" panel panel-success creditObj">
+	<div class="panel-heading">
+		<h4><span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;{{credit}}</h4>
 	</div>
-	<div class="list-group-item" ng-repeat="creditObj in movie.movieDetails[credit]">
-		<div class="media">
+	<div class="panel-body">
+		<div class="media" ng-repeat="creditObj in movie.movieDetails[credit]">
 			<div class="media-left">
 				<a href="#">
 					<img ng-if="creditObj.profile_path" class="media-object" src="{{movie.movieConfig.imgServer + movie.movieConfig.verysmall + creditObj.profile_path}}" alt="IMAGE" />
