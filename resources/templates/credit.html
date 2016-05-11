@@ -5,10 +5,8 @@
 	<div class="panel-body">
 		<div class="media" ng-repeat="creditObj in movie.movieDetails[credit]">
 			<div class="media-left">
-				<a href="#">
-					<img ng-if="creditObj.profile_path" class="media-object" src="{{movie.movieConfig.imgServer + movie.movieConfig.verysmall + creditObj.profile_path}}" alt="IMAGE" />
-					<img ng-if="!creditObj.profile_path" class="media-object silkhoitte" src="resources/silkhoitte.svg" />
-				</a>
+				<img ng-if="creditObj.profile_path" class="media-object" src="{{movie.movieConfig.imgServer + movie.movieConfig.verysmall + creditObj.profile_path}}" alt="IMAGE" />
+				<img ng-if="!creditObj.profile_path" class="media-object silkhoitte" src="resources/silkhoitte.svg" />
 			</div>
 			<div class="media-body" ng-switch on="credit">
 				<h4 ng-switch-when="cast" class="media-heading">{{creditObj.name}}</h4>
