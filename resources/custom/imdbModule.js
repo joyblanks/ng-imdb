@@ -166,20 +166,19 @@
 					movieService.movieDetails(resJson);
 					$(window).off('scroll', lazyLoaderFn);
 					$location.url('movieDetails');
+					movieService.getMovieCredits(key).then(
+						function(resJson) {
+							var movieDetail = movieService.movieDetails();
+							movieDetail.cast = resJson.cast;
+							movieDetail.crew = resJson.crew;
+							movieService.movieDetails(movieDetail);
+						}
+					);
 				},
 				function(errorPayload) {
 					//$log.error('failure loading movie', errorPayload);
 				}
 			);
-			promise = movieService.getMovieCredits(key);
-			promise.then(
-				function(resJson) {
-					var movieDetail = movieService.movieDetails();
-					movieDetail.cast = resJson.cast;
-					movieDetail.crew = resJson.crew;
-					movieService.movieDetails(movieDetail);
-				}
-			);//lazy load on request click
 		}
 	}]);
 
