@@ -1,5 +1,5 @@
 html,body{margin:0 !important;padding:0 !important;height:100vh;}
-button.tp180{width: 140px;text-align:left;margin-left:5px;}
+/*button.tp180{width: 140px;text-align:left;margin-left:5px;}*/
 p.signme{font-size:9px;font-weight: normal;line-height: 8px;}
 #loadType button.btn-default{color:#265a88;cursor:auto;}
 #loadType a, #loadType a:hover{color:#ae3910;}
@@ -7,7 +7,7 @@ p.signme{font-size:9px;font-weight: normal;line-height: 8px;}
 span.mytop0{top:0;}
 #apititle{font-size: 12px;}
 a.brandapi{padding:5px;outline:medium none;}
-aside.movTle{padding: 2px 0px;width:100%;max-width: 100%;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+aside.movTle{padding: 2px;width:100%;max-width:135px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 #collapse-1 button.btn-primary:hover {background-color: #265a88;border-color: #265a88;color: #ffffff;}
 #collapse-1 button.btn-primary.active:hover {background-color: #419641;border-color: #419641;color: #ffffff;}
 #collapse-1 button.btn-primary.active:focus {border-color: #419641;}
@@ -34,4 +34,7 @@ div.favIconApi:hover ~ span{margin-left:16px;}
 span.fliphorizontal{-moz-transform: scaleX(-1);-webkit-transform: scaleX(-1);-o-transform: scaleX(-1);transform: scaleX(-1);-ms-filter: fliph; /*IE*/filter: fliph; /*IE*/}
 .creditObj .media-body {color: #000;}
 .silkhoitte{width:45px; height:60px;}
-.creditObj .list-group-item-heading{text-transform:capitalize;}
+.creditObj .panel-heading{text-transform:capitalize;font-weight:bold;}
+.creditObj .panel-body{height:30vh;overflow:auto;}
+div#movieDetailPane{height: 75vh;overflow: auto;}
+.spacing{height:15px;}

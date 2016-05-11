@@ -1,5 +1,5 @@
 (function(){
-	
+	'use strict';
 	var app = angular.module('imdbModule', ['connectionModule', 'ngRoute']);
 	
 	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
@@ -192,7 +192,7 @@
 		myScope.panelSt = true; 
 		$scope.$watch(function () {
 			myScope.movieDetails = movieService.movieDetails();
-			if(!$('.progress-bar').width()){
+			if($('.progress-bar').length && !$('.progress-bar').width()){
 				$('.progress-bar').animate({'width':((myScope.movieDetails.vote_average*10) +'%')}, {duration: 150, easing: 'swing'});
 			}
 			return movieService;
@@ -209,6 +209,15 @@
 				myScope.panelSt = !myScope.panelSt;
 				$('#movieDetailPane').slideToggle();
 			}
+		};
+		myScope.formatDate	= function(d){
+			var mon = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+			d = new Date(d);//'<sup>'+(d.getDate()==1 ? 'st': d.getDate()==2 ? 'nd' : d.getDate()==3 ? 'rd' : 'th')+'</sup>' + ' '
+			return d.getDate() + ' ' + mon[d.getMonth()] + ', ' + d.getFullYear();
+		};
+		
+		myScope.isReleased	= function(d){
+			return ((new Date(d) - new Date()) < 0);
 		};
 	}]);
 	
@@ -251,9 +260,8 @@
 			,restrict: 'A'
 			,templateUrl: './resources/templates/credit.html'
 			,replace: true
-			
+			,transclude: true
 			,link: function(scope, element, attributes){
-				scope.credit = attributes.credit;
 				scope.movie = scope.movie();
 			}
 		};
