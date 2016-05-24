@@ -238,6 +238,11 @@ This is an optional service you can use to help troubleshoot requests. You are n
 
 
 ##Snapshots
+
 <img src="docs/snp1.jpg" />
+
+
 <img src="docs/snp2.jpg" />
+
+
 <img src="docs/snp3.jpg" />
