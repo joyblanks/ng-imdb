@@ -206,9 +206,9 @@ If you want to fall back to English, you can make the separate call yourself and
 
 #### Image Languages
 
-- poster_path: The poster_path will query the language you specify first and default back to 'en' if one is not found. In the event that an 'en' poster isn't present, we will simply try to grab the highest rated.
-- backdrop_path: Since 99% of backdrops don't contain a language so to speak, we simply query for the highest rated backdrop that belongs to the given entry.
-- still_path: Like backdrops, TV episode images don't inherently have languages so to speak. We query for the highest rated. 
+- `poster_path`: The poster_path will query the language you specify first and default back to 'en' if one is not found. In the event that an 'en' poster isn't present, we will simply try to grab the highest rated.
+- `backdrop_path`: Since 99% of backdrops don't contain a language so to speak, we simply query for the highest rated backdrop that belongs to the given entry.
+- `still_path`: Like backdrops, TV episode images don't inherently have languages so to speak. We query for the highest rated. 
 
 In the event you query one of the distinct /image methods, there is a new way you can query additional languages for images. Think of this as kind of like a fallback. This is especially useful to grab 2 things. First, finding the backdrops and posters in a users specified language but also to grab all of the images that _haven't_ been tagged yet. Here's an example:
 
@@ -218,17 +218,13 @@ Notice the include_image_language parameter. We're looking for all images that 
 
 #### Appending Responses
 
-The [movie](http://docs.themoviedb.apiary.io/#movies), [tv](http://docs.themoviedb.apiary.io/#tv) and [person](http://docs.themoviedb.apiary.io/#person) methods support a new parameter called 
-
-append_to_response. When this parameter is present, the API will make an additional request behind the scenes to fetch the data you're asking for. A simple example would be if you wanted the default movie, release and trailer data. Until now, you would have to issue three separate requests. Now, you can issue one. Here's what that request looks like:
+The [movie](http://docs.themoviedb.apiary.io/#movies), [tv](http://docs.themoviedb.apiary.io/#tv) and [person](http://docs.themoviedb.apiary.io/#person) methods support a new parameter called `append_to_response`. When this parameter is present, the API will make an additional request behind the scenes to fetch the data you're asking for. A simple example would be if you wanted the default movie, release and trailer data. Until now, you would have to issue three separate requests. Now, you can issue one. Here's what that request looks like:
 
 https://api.themoviedb.org/3/movie/550?api_key=###&append_to_response=releases,trailers
 
 This request is the same as making these 3 separate requests, all we're doing is combining the responses into a single response for you. With this in mind, remember all parameters and responses will be the same as documented. Each appended request will map to an object in the JSON response with the same name.
 
-You can of course pass the new 
-
-include_image_language param to the images too!
+You can of course pass the new `include_image_language param` to the images too!
 
 https://api.themoviedb.org/3/movie/550?api_key=###&append_to_response=images&include_image_language=en,null
 
