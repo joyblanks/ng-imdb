@@ -16,6 +16,6 @@
 	</head>
 	<body ng-app="imdbModule" class="container-fluid">
 		<header> <navigation/> </header>
-		<section><ng-view></ng-view></section>
+		<section><ng-view ng-keep-scroll="service.scrollY"></ng-view></section>
 	</body>
 </html>

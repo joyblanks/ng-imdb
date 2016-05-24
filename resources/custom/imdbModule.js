@@ -266,6 +266,24 @@
 		};
 	}]);
 
+	app.directive('ngKeepScroll', function ($timeout) {
+		return function (scope, element, attrs) {
+
+			//load scroll position after everything has rendered
+			$timeout(function () {
+				//alert('0')
+				var scrollY = parseInt(scope.$eval(attrs.ngKeepScroll));
+				$(window).scrollTop(scrollY ? scrollY : 0);
+			}, 0);
+
+			//save scroll position on change
+			scope.$on("$routeChangeStart", function () {
+				//alert('1')
+				scope.$eval(attrs.ngKeepScroll + " = " + $(window).scrollTop());
+			});
+		}
+	});
+
 	app.filter('trustAsResourceUrl', ['$sce', function($sce) {
 		return function(val) {
 			return $sce.trustAsResourceUrl(val);
