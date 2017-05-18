@@ -3,6 +3,8 @@ A movie search Engine using apiary.io REST API to get data using Angular js and 
 ####by Joy Biswas @ joy.blanks@hotmail.com
 ---
 <img src="https://assets.tmdb.org/images/logos/var_8_0_tmdb-logo-2_Bree.svg" />
+
+
 ## The Movie Database API  
 
 #### INTRODUCTION
@@ -14,6 +16,19 @@ With an initital data contribution from a project called [omdb](http://www.omdb
 Today, our service is used by tens of millions of people every week and is often regarded as the single best place to get movie data and images. Whether you're interested in personal movie and TV recommendations, what movies have [won the Oscar for best picture](https://www.themoviedb.org/list/509ec17b19c2950a0600050d), maintaining a personal watchlist, or like to develop applications of your own, we hope you'll love everything our service has to offer.
 
 So explore a little. Search for your favorite movie. Build a list of movies you want to watch. We're really proud of the service we've built and hope you find it as useful as we do.
+
+
+#### RUN in Docker
+
+##### Run locally: 
+
+1. Build docker image: `$ docker build . -t ng-imdb`
+2. Run docker image: `$ docker run -d -p 80:80 ng-imdb`
+
+##### Run on Cloud: 
+
+Try http://play-with-docker.com for running docker on browser without any local setup.
+1. Create instance and run `$ docker run -d -p 80:80 rawsanj/ng-imdb`
 
 #### Useful Links
 
