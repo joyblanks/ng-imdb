@@ -1,5 +1,5 @@
 ## ng-imdb
-A movie search Engine using apiary.io REST API to get data using Angular js and Bootstrap
+A movie search Engine using apiary.io REST API to get data using Angular js and Bootstrap 
 ####by Joy Biswas @ joy.blanks@hotmail.com
 ---
 <img src="https://assets.tmdb.org/images/logos/var_8_0_tmdb-logo-2_Bree.svg" />
@@ -258,3 +258,6 @@ This is an optional service you can use to help troubleshoot requests. You are n
 
 
 <img src="docs/snp3.jpg" />
+
+
+[##Demo](http://joyblanks.github.io/ng-imdb/)
